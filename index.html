@@ -1,0 +1,213 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, Download } from "lucide-react";
+
+export default function Portfolio() {
+
+  const projects = [
+    {
+      title: "Java Data Structures",
+      description:
+        "Implemented Stack, Queue, and LinkedList from scratch to understand internal behavior of core data structures and algorithm efficiency.",
+      tech: "Java • Data Structures • Algorithms",
+      github: "https://github.com/venma402/java-data-structures"
+    },
+    {
+      title: "Parking Lot Management System",
+      description:
+        "Object-oriented parking lot simulation handling vehicle entry, exit, slot allocation, and parking availability tracking.",
+      tech: "Java • OOP • System Design",
+      github: "https://github.com/venma402/parking-lot-system"
+    },
+    {
+      title: "Library Management System",
+      description:
+        "System to manage books, members, issue/return operations, and track book availability in a library.",
+      tech: "Java • OOP",
+      github: "https://github.com/venma402/library-management-system"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 p-8 text-white">
+
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="max-w-5xl mx-auto"
+      >
+
+        {/* HEADER */}
+
+        <h1 className="text-5xl font-bold mb-2">VENMA PEHAN</h1>
+
+        <p className="text-lg mb-6">
+          Aspiring Software Developer | Java Backend | Data Structures & Algorithms
+        </p>
+
+        <div className="flex flex-wrap gap-4 mb-10">
+
+          <Button variant="secondary" className="flex gap-2">
+            <Mail size={16}/> venmapehan@gmail.com
+          </Button>
+
+          <Button
+            variant="secondary"
+            className="flex gap-2"
+            onClick={() => window.open("https://linkedin.com")}
+          >
+            <Linkedin size={16}/> LinkedIn
+          </Button>
+
+          <Button
+            variant="secondary"
+            className="flex gap-2"
+            onClick={() => window.open("https://github.com/venma402")}
+          >
+            <Github size={16}/> GitHub
+          </Button>
+
+          <Button
+            variant="secondary"
+            className="flex gap-2"
+            onClick={() => window.open("/resume.pdf")}
+          >
+            <Download size={16}/> Resume
+          </Button>
+
+        </div>
+
+        {/* ABOUT */}
+
+        <section className="mb-12">
+          <h2 className="text-3xl font-semibold mb-4">About</h2>
+
+          <p className="text-lg leading-relaxed">
+            Passionate software developer focused on backend development with Java.
+            Strong interest in data structures, algorithms, and system design.
+            Currently building practical backend systems while strengthening
+            computer science fundamentals.
+          </p>
+        </section>
+
+        {/* HIGHLIGHTS */}
+
+        <section className="mb-12">
+
+          <h2 className="text-3xl font-semibold mb-4">Highlights</h2>
+
+          <div className="grid grid-cols-3 gap-6 text-center">
+
+            <div className="bg-white text-black p-6 rounded-xl shadow">
+              <h3 className="text-2xl font-bold">3+</h3>
+              <p>Projects Built</p>
+            </div>
+
+            <div className="bg-white text-black p-6 rounded-xl shadow">
+              <h3 className="text-2xl font-bold">Java</h3>
+              <p>Primary Language</p>
+            </div>
+
+            <div className="bg-white text-black p-6 rounded-xl shadow">
+              <h3 className="text-2xl font-bold">DSA</h3>
+              <p>Strong Foundation</p>
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* PROJECTS */}
+
+        <section className="mb-12">
+
+          <h2 className="text-3xl font-semibold mb-6">Projects</h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+
+            {projects.map((p, i) => (
+              <motion.div
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+
+                <Card className="rounded-2xl shadow-xl">
+
+                  <CardContent className="p-6 text-black">
+
+                    <h3 className="text-xl font-bold mb-2">{p.title}</h3>
+
+                    <p className="mb-3">{p.description}</p>
+
+                    <p className="text-sm font-semibold mb-4">
+                      Tech: {p.tech}
+                    </p>
+
+                    <Button
+                      className="flex gap-2"
+                      onClick={() => window.open(p.github)}
+                    >
+                      <Github size={16}/> View Code
+                    </Button>
+
+                  </CardContent>
+
+                </Card>
+
+              </motion.div>
+            ))}
+
+          </div>
+
+        </section>
+
+        {/* SKILLS */}
+
+        <section className="mb-12">
+
+          <h2 className="text-3xl font-semibold mb-4">Skills</h2>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+            <div className="bg-white text-black p-4 rounded-lg">Java</div>
+            <div className="bg-white text-black p-4 rounded-lg">Data Structures</div>
+            <div className="bg-white text-black p-4 rounded-lg">Algorithms</div>
+            <div className="bg-white text-black p-4 rounded-lg">Object-Oriented Programming</div>
+            <div className="bg-white text-black p-4 rounded-lg">Spring Boot</div>
+            <div className="bg-white text-black p-4 rounded-lg">REST APIs</div>
+            <div className="bg-white text-black p-4 rounded-lg">MySQL</div>
+            <div className="bg-white text-black p-4 rounded-lg">Git</div>
+            <div className="bg-white text-black p-4 rounded-lg">Linux</div>
+
+          </div>
+
+        </section>
+
+        {/* EDUCATION */}
+
+        <section>
+
+          <h2 className="text-3xl font-semibold mb-4">Education</h2>
+
+          <p className="text-lg">
+            B.Tech – Textile Technology  
+            Bannari Amman Institute of Technology
+          </p>
+
+        </section>
+
+        {/* FOOTER */}
+
+        <footer className="mt-20 text-center text-sm opacity-80">
+          <p>© 2026 Venma Pehan</p>
+          <p>Built with React • Tailwind • Framer Motion</p>
+        </footer>
+
+      </motion.div>
+
+    </div>
+  );
+}
